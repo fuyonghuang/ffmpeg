@@ -1,0 +1,56 @@
+spring:
+
+  # 当前环境 dev 开发，prod 生产
+  profiles.active: dev
+  #文件上传配置
+  http:
+    multipart:
+      enabled: true
+      file-size-threshold: 0
+      max-file-size: 5000Mb
+      max-request-size: 5000Mb
+
+ffmpeg:
+    path: E:\ffmpegwin64static\bin\ffmpeg
+
+flie:
+    path:
+  # mybatis配置
+#mybatis:
+#  # 配置映射类所在包名
+#  type-aliases-package: com.**.mapper
+#  # 配置mapper xml文件所在路径，这里是一个数组
+#  mapper-locations:
+#    - classpath:mapper/*.xml
+
+
+---
+#开发环境
+
+server:
+  port: 9191
+spring:
+  profiles: dev  
+    # 数据库配置
+#  datasource:
+#    url: jdbc:oracle:thin:@192.168.0.198:1521:prod
+#    username: teenagers_area
+#    password: oracle
+#    driver-class-name: oracle.jdbc.driver.OracleDriver
+      # 控制台显示颜色
+  output.ansi.enabled: always
+
+#  jpa.show-sql: true
+
+---  
+#生产环境
+spring:
+  profiles: prod  
+#  datasource:
+#    url: jdbc:oracle:thin:@192.168.0.198:1521:prod
+#    username: teenagers_jwaq
+#    password: oracle
+#    driver-class-name: oracle.jdbc.driver.OracleDriver
+   # 控制台显示颜色
+  output.ansi.enabled: always
+  #配置ftp
